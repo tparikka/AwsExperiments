@@ -1,0 +1,36 @@
+﻿services:
+  sampleecsservice:
+    image: sampleecsservice
+    build:
+      context: .
+      dockerfile: src/SampleEcsService/Dockerfile
+
+  sampleecsapi:
+    image: sampleecsapi
+    build:
+      context: .
+      dockerfile: src/SampleEcsApi/Dockerfile
+
+  webapplication1:
+    image: webapplication1
+    build:
+      context: .
+      dockerfile: WebApplication1/Dockerfile
+
+  webapplication1-1:
+    image: webapplication1-1
+    build:
+      context: .
+      dockerfile: WebApplication1/Dockerfile
+
+  sampleecsapi-1:
+    image: sampleecsapi-1
+    build:
+      context: .
+      dockerfile: src/SampleEcsApi/Dockerfile
+
+  webapplication1-2:
+    image: webapplication1-2
+    build:
+      context: .
+      dockerfile: src/WebApplication1/Dockerfile

@@ -24,8 +24,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\SampleApiLambda\SampleApiLambda.csproj" />
-      <ProjectReference Include="..\UnitTest.Common\UnitTest.Common.csproj" />
+      <ProjectReference Include="..\..\src\SampleApiLambda\SampleApiLambda.csproj" />
+      <ProjectReference Include="..\..\UnitTest.Common\UnitTest.Common.csproj" />
     </ItemGroup>
 
 </Project>

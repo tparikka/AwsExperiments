@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2927CACA-6BF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A49E062B-2697-4FBE-B17D-C8807A7FD3BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApiLambda.UnitTests", "SampleApiLambda.UnitTests\SampleApiLambda.UnitTests.csproj", "{B7CFECCF-161B-4559-86FB-4D53F70362A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApiLambda.UnitTests", "test/SampleApiLambda.UnitTests\SampleApiLambda.UnitTests.csproj", "{B7CFECCF-161B-4559-86FB-4D53F70362A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.Common", "UnitTest.Common\UnitTest.Common.csproj", "{BD65709D-7D22-4D2B-979D-7AD3521E1689}"
 EndProject

@@ -26,6 +26,8 @@ provider "aws" {
 
 data "aws_caller_identity" "default" {}
 
+data "aws_ecr_authorization_token" "token" {}
+
 provider "docker" {
   registry_auth {
     address  = "${data.aws_caller_identity.default.account_id}.dkr.ecr.us-east-1.amazonaws.com"

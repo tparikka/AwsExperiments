@@ -44,3 +44,6 @@ msbuild.wrn
 
 # Terraform
 .terraform
+
+# ZIP Files
+*.zip

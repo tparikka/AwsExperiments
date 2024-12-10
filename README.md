@@ -29,6 +29,10 @@ automatically determine sets of changes needed to reach the intended state as de
 
 This project will not include a discussion of the merits/drawbacks of each - we will use Terraform for all IAC.
 
+**NOTE**: Deploying changes in Terraform and is performed with the command `terraform apply`.
+Terraform will show a list of the changes to be made, and the user can specify whether or no to proceed. Type `yes`
+to apply the changes. These steps apply to all Terraform modules described below.
+
 ### Windows
 
 To install Terraform on Windows:
@@ -77,7 +81,6 @@ At this point, your terminal is authenticated and the session can be used by Ter
 Setting the AWS_PROFILE environment variable will allow Terraform to use that profile across the board for all
 interactions without requiring source code changes:
 
-
 #### Windows
 
 - At a Powershell terminal, use the command `$env:AWS_PROFILE=myprofilename`, substituting the profile name specified
@@ -88,7 +91,9 @@ at the last step of `Log In With AWS SSO`
 - At a zsh or Bash terminal, use the command `EXPORT AWS_PROFILE=myprofilename`, substituting the profile name specified
 at the last step of `Log In With AWS SSO`
 
-### Landing Zone
+### Common Modules
+
+#### Landing Zone
 
 In order to prevent multiple users from applying conflicting changes at the same time and to improve collaboration, it
 is common to store both lock state (which prevents collisions) and current system state in a cloud resource of some
@@ -98,9 +103,14 @@ developer's laptop which is suboptimal.
 
 For this to work the DynamoDB table and S3 storage bucket must exist, creating a "chicken and egg" situation. We address
 this by creating a "landing zone" Terraform module that establishes the minimum possible assets required to support
-IAC deployments. This module can be lives in `/iac/landing-zone` and can be deployed with the command `terraform apply`.
+IAC deployments. This module can be lives in `/iac/landing-zone`.
 
-### Infrastructure
+**NOTE**: Because S3 bucket names must be globally unique, in `s3.tf` the bucket name must be updated. Replace
+`firstname-lastname` with the developer's first and last name to provide uniqueness. There is also a `provider.tf` in
+each other module where the `bucket` name in the `backend` section must be updated to reflect this value in the
+developer's fork.
+
+#### Infrastructure
 
 Once the landing zone has been deployed, other infrastructure can be deployed as needed. This can include resources like:
 
@@ -108,14 +118,14 @@ Once the landing zone has been deployed, other infrastructure can be deployed as
 - [WAFs](https://aws.amazon.com/waf/)
 - SSO / Federated Identity Resources
 
-#### AWS / GitHub Connection
+##### AWS / GitHub Connection
 
 In this example, the only component at the infra level is a federated connection allowing GitHub / AWS interactions.
 This allows [GitHub Actions](https://github.com/features/actions) to perform actions like deploying services
 and container images to AWS. The repo includes defaults based on the maintainer's environment that can be overridden
 at Terraform runtime like so:
 
-`terraform apply -var="account_id=123456789" -var="github_repository=yourname/yourreponame" -var="idp_thumbprint=asdf""`
+`terraform apply -var="account_id=123456789" -var="github_repository=yourname/yourreponame" -var="idp_thumbprint=asdf"`
 
 Alternately, if the repo is forked the user can replace the default with their own value. The variables can also be
 supplied as part of a deployment pipeline, which is outside the current scope of this sample.
@@ -124,7 +134,14 @@ Related Links:
 
 - https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/
 
-### 
+### Sample Systems
+
+The following sample systems are available for testing. They are system level modules that rely on the previously
+described modules. They have their own README.md files. They include:
+
+- [sample-sqs-lambda](./src/SampleSqsLambda/README.md)
+- [sample-api-lambda](./src/SampleApiLambda/README.md)
+- [sample-ecr]
 
 ## Usage
 

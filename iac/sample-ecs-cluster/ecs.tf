@@ -1,5 +1,11 @@
 # ecs.tf
 
+data "aws_ecr_authorization_token" "this" {}
+
+data "aws_ecr_repository" "ecs_sample_api_repo" {
+  name = "sample-ecs-api"
+}
+
 resource "aws_ecs_cluster" "main" {
   name = "sample-ecs-api-cluster"
 }

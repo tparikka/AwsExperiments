@@ -7,9 +7,8 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "tparikka-tfstate"
-    key            = "awsexperiments/sample-sqs-lambda"
-    profile        = "tparikka-dev"
+    bucket         = "awsexperiments-backend-tfstate-firstname-lastname"
+    key            = "awsexperiments/sample-api-lambda"
     region         = "us-east-1"
     dynamodb_table = "tf-lock"
   }
@@ -19,5 +18,4 @@ terraform {
 
 provider "aws" {
   region  = "us-east-1"
-  profile = "tparikka-dev"
 }

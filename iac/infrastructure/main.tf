@@ -9,7 +9,6 @@ terraform {
   backend "s3" {
     bucket         = "tparikka-tfstate"
     key            = "awsexperiments/sample-api-lambda"
-    profile        = "tparikka-dev"
     region         = "us-east-1"
     dynamodb_table = "tf-lock"
   }
@@ -19,5 +18,4 @@ terraform {
 
 provider "aws" {
   region  = "us-east-1"
-  profile = "tparikka-dev"
 }

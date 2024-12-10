@@ -72,6 +72,22 @@ If they do, click `Confirm and Continue` and then `Allow Access`
 
 At this point, your terminal is authenticated and the session can be used by Terraform.
 
+### Set The AWS_PROFILE Environment Variable
+
+Setting the AWS_PROFILE environment variable will allow Terraform to use that profile across the board for all
+interactions without requiring source code changes:
+
+
+#### Windows
+
+- At a Powershell terminal, use the command `$env:AWS_PROFILE=myprofilename`, substituting the profile name specified
+at the last step of `Log In With AWS SSO`
+
+#### macOS
+
+- At a zsh or Bash terminal, use the command `EXPORT AWS_PROFILE=myprofilename`, substituting the profile name specified
+at the last step of `Log In With AWS SSO`
+
 ### Landing Zone
 
 In order to prevent multiple users from applying conflicting changes at the same time and to improve collaboration, it

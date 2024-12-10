@@ -6,7 +6,7 @@ resource "aws_iam_openid_connect_provider" "github_idp" {
     "sts.amazonaws.com"
   ]
   thumbprint_list = [
-    ""
+    var.idp_thumbprint
   ]
 }
 
@@ -19,14 +19,14 @@ resource "aws_iam_role" "github_aws_action" {
         "Effect" : "Allow",
         "Principal" : {
           "Federated" : "arn:aws:iam::${var.account_id}:oidc-provider/token.actions.githubusercontent.com"
-          "Action" : "sts:AssumeRoleWithWebIdentity",
-          "Condition" : {
-            "StringEquals" : {
-              "token.actions.githubusercontent.com:aud" : "sts.amazonaws.com"
-            },
-            "StringLike" : {
-              "token.actions.githubusercontent.com:sub" : "repo:${var.github_repository}:*"
-            }
+        },
+        "Action" : "sts:AssumeRoleWithWebIdentity",
+        "Condition" : {
+          "StringEquals" : {
+            "token.actions.githubusercontent.com:aud" : "sts.amazonaws.com"
+          },
+          "StringLike" : {
+            "token.actions.githubusercontent.com:sub" : "repo:${var.github_repository}:*"
           }
         }
       }

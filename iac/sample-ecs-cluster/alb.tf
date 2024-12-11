@@ -1,11 +1,14 @@
 # alb.tf
 
+# The Application Load Balancer (ALB) that will distribute incoming traffic across services/tasks in the cluster
 resource "aws_alb" "main" {
   name        = "sample-ecs-api-load-balancer"
   subnets         = aws_subnet.public.*.id
   security_groups = [aws_security_group.lb.id]
 }
 
+# Defines the target port and protocol that will be served by the target of the ALB as well as the health check that
+# will allow the ALB to know if the service is in good working order or not
 resource "aws_alb_target_group" "app" {
   name        = "sample-ecs-api-target-group"
   port        = 80

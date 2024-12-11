@@ -57,7 +57,7 @@ resource "aws_api_gateway_integration_response" "proxy" {
   ]
 }
 
-# Provides a status code and last checkpoint for the resopnse before it is sent to the caller.
+# Provides a status code and last checkpoint for the response before it is sent to the caller.
 resource "aws_api_gateway_method_response" "proxy" {
   rest_api_id = aws_api_gateway_rest_api.sample_api.id
   resource_id = aws_api_gateway_resource.root.id

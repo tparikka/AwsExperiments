@@ -11,11 +11,11 @@ before deploying services, and be sure to tear down services that are no longer 
 
 ## Install
 
-## Set Up AWS Account
+### Set Up AWS Account
 
 Follow the directions [here](https://www.youtube.com/watch?v=CjKhQoYeR4Q) to set up your initial AWS Account.
 
-## Install Terraform
+### Install Terraform
 
 Terraform is our Infrastructure as Code (IAC) tool. The primary function of Terraform and other IAC platforms is to
 compare a declared and desired configuration against the actual state of the impacted resources in the cloud and
@@ -141,9 +141,11 @@ described modules. They have their own README.md files. They include:
 
 - [sample-sqs-lambda](./src/SampleSqsLambda/README.md)
 - [sample-api-lambda](./src/SampleApiLambda/README.md)
-- [sample-ecr]
+- [sample-ecr](./src/SampleEcsApi/README.md)
 
 ## Usage
+
+See the specific READMEs for the components for usage instructions.
 
 ## Badges
 

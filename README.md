@@ -147,6 +147,18 @@ described modules. They have their own README.md files. They include:
 
 See the specific READMEs for the components for usage instructions.
 
+## Teardown
+
+When tearing down sample systems, do so in this order:
+
+- The `sample-ecr` repository
+- Each other main "Sample System" that has been created, any order
+- The `infrastructure` module
+- The `landing-zone` module
+
+Note that `force-destroy` is enabled on the S3 state bucket in the landing zone to allow for an instant delete
+operation for demos. This is not recommended for a production bucket.
+
 ## Badges
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)

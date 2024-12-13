@@ -40,6 +40,28 @@ resource "aws_iam_role_policy" "sns_policy" {
   })
 }
 
+resource "aws_iam_role_policy" "lambda_cloudwatch_policy" {
+  name   = "lambda-cloudwatch-logs-policy"
+  role   = aws_iam_role.iam_for_lambda.name
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    }
+  ]
+}
+EOF
+}
+
 #
 resource "aws_iam_role_policy" "sqs_policy" {
   role = aws_iam_role.iam_for_lambda.id

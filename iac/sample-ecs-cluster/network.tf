@@ -4,6 +4,7 @@
 data "aws_availability_zones" "available" {
 }
 
+# Defines the initial Virtual Private Cloud along with its IP address block
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
 }

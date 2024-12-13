@@ -1,4 +1,4 @@
-# provider.tf
+# ecr.tf
 
 # Retrieves data for the AWS Elastic Container Registry (ECR) repository where the image to be built
 # will be stored

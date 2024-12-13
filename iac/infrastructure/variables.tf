@@ -1,3 +1,5 @@
+# variables.tf
+
 variable "account_id" {
   type = string
   description = "The 12-digit AWS account number."

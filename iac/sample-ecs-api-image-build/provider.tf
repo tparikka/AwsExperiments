@@ -1,3 +1,5 @@
+# provider.tf
+
 terraform {
   required_providers {
     aws = {
@@ -11,7 +13,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "awsexperiments-backend-tfstate-firstname-lastname"
+    bucket         = "awsexperiments-backend-tfstate-firstname-lastname" # Replace firstname-lastname with the developer name
     key            = "awsexperiments/ecr-with-build"
     region         = "us-east-1"
     dynamodb_table = "tf-lock"
@@ -24,10 +26,13 @@ provider "aws" {
   region  = "us-east-1"
 }
 
+# Retrieves the current AWS identity
 data "aws_caller_identity" "default" {}
 
+# Retrieves the current Elastic Container Registry (ECR) authorization token based on the current provider configuration
 data "aws_ecr_authorization_token" "token" {}
 
+# Defines a provider connection to the AWS ECR registry
 provider "docker" {
   registry_auth {
     address  = "${data.aws_caller_identity.default.account_id}.dkr.ecr.us-east-1.amazonaws.com"

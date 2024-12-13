@@ -11,7 +11,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "awsexperiments-backend-tfstate-firstname-lastname"
+    bucket         = "awsexperiments-backend-tfstate-firstname-lastname" # Replace firstname-lastname with the developer name
     key            = "awsexperiments/fargate"
     region         = "us-east-1"
     dynamodb_table = "tf-lock"

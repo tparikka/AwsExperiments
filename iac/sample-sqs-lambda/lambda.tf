@@ -1,3 +1,5 @@
+# lambda.tf
+
 # Retrieves the policy document that will allow AWS Lambda to operate in the specified role
 data "aws_iam_policy_document" "lambda_role" {
   statement {

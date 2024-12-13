@@ -1,3 +1,5 @@
+# provider.tf
+
 terraform {
   required_providers {
     aws = {
@@ -7,7 +9,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "awsexperiments-backend-tfstate-firstname-lastname"
+    bucket         = "awsexperiments-backend-tfstate-firstname-lastname" # Replace firstname-lastname with the developer name
     key            = "awsexperiments/sample-sqs-lambda"
     region         = "us-east-1"
     dynamodb_table = "tf-lock"

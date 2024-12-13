@@ -1,3 +1,5 @@
+# idp.tf
+
 # The OIDC Identity Provider to be created that will connect AWS to GitHub
 # Refer to the main README.md to see how to pass the correct thumbprint value here
 resource "aws_iam_openid_connect_provider" "github_idp" {

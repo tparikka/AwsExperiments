@@ -1,4 +1,6 @@
-# Retrieves the policy document that will allow AWS Lambda to operate
+# lambda.tf
+
+# Defines the policy document that will allow AWS Lambda to operate
 data "aws_iam_policy_document" "lambda_role" {
   statement {
     actions = ["sts:AssumeRole"]

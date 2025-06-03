@@ -88,7 +88,7 @@ at the last step of `Log In With AWS SSO`
 
 #### macOS
 
-- At a zsh or Bash terminal, use the command `EXPORT AWS_PROFILE=myprofilename`, substituting the profile name specified
+- At a zsh or Bash terminal, use the command `export AWS_PROFILE=myprofilename`, substituting the profile name specified
 at the last step of `Log In With AWS SSO`
 
 ### Common Modules
